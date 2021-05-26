@@ -13,6 +13,10 @@ header {
   font-family: Roboto;
   color: #fff;
 }
+.title img{
+  width: 6%;
+  height: 6%;
+}
 
 .errorText {
   color: red;

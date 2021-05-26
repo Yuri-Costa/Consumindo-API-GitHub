@@ -4,7 +4,6 @@ import './App.css';
 import Header from './componets/Header'
 import Form from './componets/Form'
 import RepoList from "./componets/RepoList";
-import Spinner from "./componets/Spinner"
 
 class App extends Component{
   state={
@@ -51,7 +50,6 @@ class App extends Component{
 
   <div className="App">
      <Header/>
-     <h1 className= "title1">Buscar Repositorios Github</h1>
      <Form changeUser = {this.changeUser}
             user= {user}
             error = {error}
