@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
-  background-color: #eee;
+  background-image: url("giphy4.gif");;
   font-family: Roboto;
 }
 
@@ -8,8 +8,10 @@ header {
   text-align: center;
 }
 
+
 .title {
   font-family: Roboto;
+  color: #fff;
 }
 
 .errorText {
@@ -37,7 +39,7 @@ header {
   height: 42px;
   padding: 10px;
   margin-left: 10px;
-  background: orange;
+  background: rgb(132, 0, 255);
   color: #fff;
   border: 0;
   font-size: 20px;
@@ -65,7 +67,7 @@ header {
   padding: 20px;
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 3px 3px 10px #ddd;
+  box-shadow: 3px 3px 10px rgb(132, 0, 255);
   text-decoration: none;
 }
 

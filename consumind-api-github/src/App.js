@@ -3,6 +3,8 @@ import axios from "axios";
 import './App.css';
 import Header from './componets/Header'
 import Form from './componets/Form'
+import RepoList from "./componets/RepoList";
+import Spinner from "./componets/Spinner"
 
 class App extends Component{
   state={
@@ -16,13 +18,26 @@ class App extends Component{
   changeUser = user =>{
     this.setState({user})
   }
-  searchUser = ( ) => {
-    const {user} = this.state
-    axios.get(`https://api.github.com/users/${user}/repos`)
-   .then((data) => {
-     console.log("retornou do github", data);
-   })
-  }
+  searchUser = async ( ) => {
+    const {user} = this.state;
+    this.setState({loading: true})
+    try{
+        const { data: repos} = await axios.get(
+          `https://api.github.com/users/${user}/repos`
+          );
+
+      console.log(repos)
+
+      this.setState({ repos, error : "", loading : false});
+    }catch(error){
+      this.setState({
+        error : "Usuário não encontrado",
+        repos : [],
+        loading : false
+      });
+    }
+     
+  };
  
 
 
@@ -36,14 +51,15 @@ class App extends Component{
 
   <div className="App">
      <Header/>
+     <h1 className= "title1">Buscar Repositorios Github</h1>
      <Form changeUser = {this.changeUser}
             user= {user}
             error = {error}
             loading = {loading}
             ButtonAction = { this.searchUser}
-      
-      
       />
+
+      <RepoList repos = {repos}/>
     </div>
 
     );

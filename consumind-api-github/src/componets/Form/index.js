@@ -1,4 +1,6 @@
 import React from 'react';
+import Spinner from '../Spinner';
+
 const Form = ({ user, loading, error,  ButtonAction, changeUser}) => (
     <div className= "formContainer">
         <input
@@ -10,7 +12,7 @@ const Form = ({ user, loading, error,  ButtonAction, changeUser}) => (
         onChange = { e => changeUser(e.target.value)} 
         ></input>
 
-        <button className = "searchButton" onClick = {ButtonAction}>  buscar</button>
+        <button className = "searchButton" onClick = {ButtonAction}> {loading ? <Spinner/>: "Buscar"} </button>
 
         <p className = "errorText">{error}</p>
 
